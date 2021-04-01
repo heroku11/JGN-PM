@@ -29,7 +29,7 @@ from . import (
 
 
 class BlackList(BASE):
-    """ table to store BANned users """
+    """ Daftar Hitam Pengguna / Blacklist """
     __tablename__ = "blacklist"
     chat_id = Column(String(14), primary_key=True)
     reason = Column(UnicodeText)
@@ -46,14 +46,14 @@ BlackList.__table__.create(checkfirst=True)
 
 
 def add_user_to_bl(chat_id: int, reason: str):
-    """ add the user to the blacklist """
+    """ Tambahkan Pengguna Ke daftar Hitam """
     __user = BlackList(str(chat_id), reason)
     SESSION.add(__user)
     SESSION.commit()
 
 
 def check_is_black_list(message: Message):
-    """ check if user_id is blacklisted """
+    """ Chek Id_Pengguna Dalam Daftar Hitam """
     if message and message.from_user and message.from_user.id:
         try:
             s__ = SESSION.query(BlackList).get(str(message.from_user.id))
@@ -63,7 +63,7 @@ def check_is_black_list(message: Message):
 
 
 def rem_user_from_bl(chat_id: int):
-    """ remove the user from the blacklist """
+    """ Hapus Daftar Pengguna Dari Daftar Hitam """
     s__ = SESSION.query(BlackList).get(str(chat_id))
     if s__:
         SESSION.delete(s__)
