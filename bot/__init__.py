@@ -63,7 +63,7 @@ DEFAULT_START_TEXT = (
     "Hai...\n"
     "Terimakasih telah menggunakan bot ini untuk Menghubungi saya..\n\n"
     "Pm saja bot ini bila ada keperluan\n\n\n"
-    "@Xpras_id\n"
+    "https://telegra.ph/file/77ab52a876107d3ac2132.jpg\n"
 )
 # /start message when other users start your bot
 START_OTHER_USERS_TEXT = int(get_config(
