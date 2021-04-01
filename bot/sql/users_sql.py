@@ -28,8 +28,8 @@ from . import (
 
 
 class Users(BASE):
-    """ Table to store the received messages """
-    __tablename__ = "users"
+    """ Daftar Pesan Tersimpan Pengguna """
+    __tablename__ = "Pengguna"
     message_id = Column(Integer, primary_key=True)
     chat_id = Column(String(14))
     um_id = Column(Integer)
@@ -57,14 +57,14 @@ def add_user_to_db(
     mu_id: int,
     kopp_id: int
 ):
-    """ add the message to the table """
+    """ Tambahkan Pesan Pengguna di Daftar """
     __user = Users(message_id, str(chat_id), um_id, mu_id, kopp_id)
     SESSION.add(__user)
     SESSION.commit()
 
 
 def get_user_id(message_id: int):
-    """ get the user_id from the message_id """
+    """ Dapatkan Id_Pengguna Dari Id_Pesan """
     try:
         s__ = SESSION.query(Users).get(str(message_id))
         if s__:
@@ -75,7 +75,7 @@ def get_user_id(message_id: int):
 
 
 def get_chek_dmid(um_id: int):
-    """ get the deleted user_id from the um_id """
+    """ Dapatkan Daftar Id_pengguna yang Dihapus"""
     try:
         all_lst = SESSION.query(
             Users
@@ -89,7 +89,7 @@ def get_chek_dmid(um_id: int):
 
 
 def get_chek_mdid(kopp_id: int):
-    """ get the deleted user_id from the kopp_id """
+    """ Dapatkan Daftar Id_pengguna yang Dihapus dari kopp_id """
     try:
         all_lst = SESSION.query(
             Users
