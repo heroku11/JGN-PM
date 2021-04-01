@@ -62,8 +62,8 @@ START_COMMAND = get_config("START_COMMAND", "start")
 DEFAULT_START_TEXT = (
     "Hai...\n"
     "Terimakasih telah menggunakan bot ini untuk Menghubungi saya..\n\n"
-    "Pm saja bot ini bila ada keperluan\n"
-    "Contact me @Xpras_id\n\n"
+    "Pm saja bot ini bila ada keperluan\n\n\n"
+    "@Xpras_id\n"
 )
 # /start message when other users start your bot
 START_OTHER_USERS_TEXT = int(get_config(
